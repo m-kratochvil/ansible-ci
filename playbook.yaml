@@ -1,0 +1,23 @@
+---
+- name: Show cluster HA state.
+  hosts: 'device_types_f5-vcmp,&{{ targets }}'
+  gather_facts: false
+  collections:
+    - f5networks.f5_modules
+    - ansible.netcommon
+  vars_files:
+    - ../../../vars/loadbalancer/lb_vault.yaml
+    - ../../../vars/loadbalancer/groupvars/lb_global.yaml
+    - ../../../vars/loadbalancer/groupvars/lb_{{ region }}.yaml
+  
+  tasks:
+
+    - name: Call the role to gather facts.
+      import_role:
+        name: loadbalancer/gather
+      vars: { subset: devices }
+
+    - name: Show the target device HA state.
+      debug:
+        msg: "Device {{ inventory_hostname }} current state is \
+          {{ var_gathered.devices | json_query(\"[?self=='yes'].failover_state\") | first | upper }}"
