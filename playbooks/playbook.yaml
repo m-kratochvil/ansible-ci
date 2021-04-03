@@ -1,21 +1,23 @@
 ---
 - name: Show cluster HA state.
-  hosts: 'device_types_f5-vcmp,&{{ targets }}'
+  hosts: qa-de-1a-f511
   gather_facts: false
   collections:
     - f5networks.f5_modules
     - ansible.netcommon
   vars_files:
-    - ../../../vars/loadbalancer/lb_vault.yaml
-    - ../../../vars/loadbalancer/groupvars/lb_global.yaml
-    - ../../../vars/loadbalancer/groupvars/lb_{{ region }}.yaml
+    - vars/vault.yaml
+    - vars/global.yaml
   
   tasks:
 
-    - name: Call the role to gather facts.
-      import_role:
-        name: loadbalancer/gather
-      vars: { subset: devices }
+    - name: Gather BIG-IP facts.
+      bigip_device_info:
+        gather_subset: "devices"
+        provider: "{{ provider }}"
+      delegate_to: localhost
+      check_mode: no
+      register: var_gathered
 
     - name: Show the target device HA state.
       debug:

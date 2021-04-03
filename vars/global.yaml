@@ -1,0 +1,8 @@
+---
+provider:
+  server: "{{ ansible_host }}"
+  user: admin
+  password: "{{ ansible_ssh_pass }}"
+  validate_certs: false
+
+ansible_user: root
