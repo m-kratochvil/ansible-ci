@@ -1,0 +1,22 @@
+all:
+  children:
+    device_roles_loadbalancer:
+      hosts:
+        qa-de-1a-f511:
+          ansible_host: 10.46.100.130
+          asset_tag: '34100984'
+          chassis_serial: f5-ikcn-cpdk
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-5250v
+          manufacturers:
+          - f5
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.130
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-host

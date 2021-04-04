@@ -1,0 +1,7 @@
+collections:
+  - name: ansible.netcommon
+    type: galaxy
+    version: 1.5.0
+  - community.general
+  - ansible.posix
+  - f5networks.f5_modules
