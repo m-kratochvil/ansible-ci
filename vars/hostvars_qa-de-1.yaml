@@ -1,0 +1,347 @@
+---
+hostbased:
+
+  # QA-DE-1
+  qa-de-1a-f511:
+    mgmt_ip: "10.46.100.130"
+    snmpcontact: '34100984:10.17.125.23:1015'
+    snmplocation: 'ROT06-RZ23HDA2-RO1-RA07-32'
+    vlans:
+      - name: 'cc-vlan-mgmt-rd0'
+        tag: 101
+      - name: 'cc-vlan-transit-rd0'
+        tag: 49
+      - name: 'cc-vlan-transit-rd1'
+        tag: 50
+    guests:
+      - name: 'mgmt'
+        cores: 2
+        ip: '10.46.100.180/25'
+        vlans:
+          - 'cc-vlan-mgmt-rd0'
+          - 'cc-vlan-transit-rd0'
+          - 'cc-vlan-transit-rd1'
+      - name: '01'
+        cores: 2
+        ip: '10.46.100.182/25'
+        vlans: ['cc-vlan-mgmt-rd0']
+      - name: '02'
+        cores: 2
+        ip: '10.46.100.184/25'
+        vlans: ['cc-vlan-mgmt-rd0']
+      - name: '03'
+        cores: 2
+        ip: '10.46.100.186/25'
+        vlans: ['cc-vlan-mgmt-rd0']
+
+  qa-de-1a-f511-mgmt:
+    mgmt_ip: "10.46.100.180"
+    snmpcontact: '34100984:10.17.125.23:1015'
+    snmplocation: 'ROT06-RZ23HDA2-RO1-RA07-32'
+    extramb: '1536'
+    routedomains:
+      - name: '0'
+        id: 0
+        desc: "Default route domain"
+        rproto: ["BGP"]
+        gw: 10.46.102.217
+        rt_id: 10.46.102.220
+        bgpneighbors:
+          - 10.46.102.218
+          - 10.46.102.219
+        bfd: no
+      - name: 'cc-rd1-transit'
+        id: 1
+        desc: "Route domain for external peerings"
+        rproto: ["BGP"]
+        gw: 10.46.102.233
+        rt_id: 10.46.102.236
+        bgpneighbors:
+          - 10.46.102.234
+          - 10.46.102.235
+        vlans: ['cc-vlan-transit-rd1']
+        bfd: yes
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.6
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+      - name: 'cc-self-transit-rd0'
+        ip: 10.46.102.220
+        mask: 255.255.255.248
+        vlan: 'cc-vlan-transit-rd0'
+        rd: 0
+      - name: 'cc-self-transit-rd1'
+        ip: 10.46.102.236
+        mask: 255.255.255.248
+        vlan: 'cc-vlan-transit-rd1'
+        rd: 1
+    dgname: 'cluster-mgmt-qa-de-1'
+    autosync: yes
+    tg1_mac: 'd0:76:50:4f:ff:d0'
+    tg2_mac: 'd0:76:50:4f:ff:d4'
+
+  qa-de-1a-f511-01:
+    mgmt_ip: "10.46.100.182"
+    snmpcontact: '34100984:10.17.125.23:1015'
+    snmplocation: 'ROT06-RZ23HDA2-RO1-RA07-32'
+    extramb: '2560'
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.8
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+    dgname: 'cluster-01-qa-de-1'
+    autosync: no
+    tg1_mac: 'd0:76:50:4f:ff:d1'
+
+  qa-de-1a-f511-02:
+    mgmt_ip: "10.46.100.184"
+    snmpcontact: '34100984:10.17.125.23:1015'
+    snmplocation: 'ROT06-RZ23HDA2-RO1-RA07-32'
+    extramb: '2560'
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.10
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+    dgname: 'cluster-02-qa-de-1'
+    autosync: no
+    tg1_mac: 'd0:76:50:4f:ff:d2'
+
+  qa-de-1a-f511-03:
+    mgmt_ip: "10.46.100.186"
+    snmpcontact: '34100984:10.17.125.23:1015'
+    snmplocation: 'ROT06-RZ23HDA2-RO1-RA07-32'
+    extramb: '2560'
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.12
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+    dgname: 'cluster-03-qa-de-1'
+    autosync: no
+    tg1_mac: 'd0:76:50:4f:ff:d3'
+
+  qa-de-1b-f511:
+    mgmt_ip: "10.46.100.131"
+    snmpcontact: '34100985:10.17.125.35:1015'
+    snmplocation: 'ROT13-RZ60-RO5L-RA03-32'
+    vlans:
+      - name: 'cc-vlan-mgmt-rd0'
+        tag: 101
+      - name: 'cc-vlan-transit-rd0'
+        tag: 49
+      - name: 'cc-vlan-transit-rd1'
+        tag: 50
+    guests:
+      - name: 'mgmt'
+        cores: 2
+        ip: '10.46.100.181/25'
+        vlans:
+          - 'cc-vlan-mgmt-rd0'
+          - 'cc-vlan-transit-rd0'
+          - 'cc-vlan-transit-rd1'
+      - name: '01'
+        cores: 2
+        ip: '10.46.100.183/25'
+        vlans: ['cc-vlan-mgmt-rd0']
+      - name: '02'
+        cores: 2
+        ip: '10.46.100.185/25'
+        vlans: ['cc-vlan-mgmt-rd0']
+      - name: '03'
+        cores: 2
+        ip: '10.46.100.187/25'
+        vlans: ['cc-vlan-mgmt-rd0']
+
+  qa-de-1b-f511-mgmt:
+    mgmt_ip: "10.46.100.181"
+    snmpcontact: '34100985:10.17.125.35:1015'
+    snmplocation: 'ROT13-RZ60-RO5L-RA03-32'
+    extramb: '1536'
+    routedomains:
+      - name: '0'
+        id: 0
+        desc: "Default route domain"
+        rproto: ["BGP"]
+        gw: 10.46.102.225
+        rt_id: 10.46.102.228
+        bgpneighbors:
+          - 10.46.102.226
+          - 10.46.102.227
+        bfd: no
+      - name: 'cc-rd1-transit'
+        id: 1
+        desc: "Route domain for external peerings"
+        rproto: ["BGP"]
+        vlans: ['cc-vlan-transit-rd1']
+        gw: 10.46.102.241
+        rt_id: 10.46.102.244
+        bgpneighbors:
+          - 10.46.102.242
+          - 10.46.102.243
+        bfd: no
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.7
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+      - name: 'cc-self-transit-rd0'
+        ip: 10.46.102.228
+        mask: 255.255.255.248
+        vlan: 'cc-vlan-transit-rd0'
+        rd: 0
+      - name: 'cc-self-transit-rd1'
+        ip: 10.46.102.244
+        mask: 255.255.255.248
+        vlan: 'cc-vlan-transit-rd1'
+        rd: 1
+    dgname: 'cluster-mgmt-qa-de-1'
+    autosync: yes
+    tg1_mac: 'd0:76:50:4f:ff:d0'
+    tg2_mac: 'd0:76:50:4f:ff:d4'
+
+  qa-de-1b-f511-01:
+    mgmt_ip: "10.46.100.183"
+    snmpcontact: '34100985:10.17.125.35:1015'
+    snmplocation: 'ROT13-RZ60-RO5L-RA03-32'
+    extramb: '2560'
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.9
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+    dgname: 'cluster-01-qa-de-1'
+    autosync: no
+    tg1_mac: 'd0:76:50:4f:ff:d1'
+
+  qa-de-1b-f511-02:
+    mgmt_ip: "10.46.100.185"
+    snmpcontact: '34100985:10.17.125.35:1015'
+    snmplocation: 'ROT13-RZ60-RO5L-RA03-32'
+    extramb: '2560'
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.11
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+    dgname: 'cluster-02-qa-de-1'
+    autosync: no
+    tg1_mac: 'd0:76:50:4f:ff:d2'
+
+  qa-de-1b-f511-03:
+    mgmt_ip: "10.46.100.187"
+    snmpcontact: '34100985:10.17.125.35:1015'
+    snmplocation: 'ROT13-RZ60-RO5L-RA03-32'
+    extramb: '2560'
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.13
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+    dgname: 'cluster-03-qa-de-1'
+    autosync: no
+    tg1_mac: 'd0:76:50:4f:ff:d3'
+
+  qa-de-1a-f512:
+    mgmt_ip: "10.46.100.178"
+    snmpcontact: '34336307:10.17.125.23:1021'
+    snmplocation: 'ROT06-RZ23HDA2-RO1-RA06-32'
+    vlans:
+      - name: 'cc-vlan-mgmt-rd0'
+        tag: 101
+    guests:
+      - name: '01'
+        cores: 4
+        ip: '10.46.100.172/25'
+        vlans: ['cc-vlan-mgmt-rd0']
+      - name: '02'
+        cores: 4
+        ip: '10.46.100.174/25'
+        vlans: ['cc-vlan-mgmt-rd0']
+
+  qa-de-1a-f512-01:
+    mgmt_ip: "10.46.100.172"
+    snmpcontact: '34336307:10.17.125.23:1021'
+    snmplocation: 'ROT06-RZ23HDA2-RO1-RA06-32'
+    extramb: '5120'
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.18
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+    dgname: 'cluster-01-qa-de-1-f512'
+    autosync: no
+    tg1_mac: 'd0:76:50:4f:ff:d5'
+
+  qa-de-1a-f512-02:
+    mgmt_ip: "10.46.100.174"
+    snmpcontact: '34336307:10.17.125.23:1021'
+    snmplocation: 'ROT06-RZ23HDA2-RO1-RA06-32'
+    extramb: '5120'
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.20
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+    dgname: 'cluster-02-qa-de-1-f512'
+    autosync: no
+    tg1_mac: 'd0:76:50:4f:ff:d6'
+
+  qa-de-1b-f512:
+    mgmt_ip: "10.46.100.179"
+    snmpcontact: '34336308:10.17.125.35:1030'
+    snmplocation: 'ROT13-RZ60-RO5L-RA03-05'
+    vlans:
+      - name: 'cc-vlan-mgmt-rd0'
+        tag: 101
+    guests:
+      - name: '01'
+        cores: 4
+        ip: '10.46.100.173/25'
+        vlans: ['cc-vlan-mgmt-rd0']
+      - name: '02'
+        cores: 4
+        ip: '10.46.100.175/25'
+        vlans: ['cc-vlan-mgmt-rd0']
+
+  qa-de-1b-f512-01:
+    mgmt_ip: "10.46.100.173"
+    snmpcontact: '34336308:10.17.125.35:1030'
+    snmplocation: 'ROT13-RZ60-RO5L-RA03-05'
+    extramb: '5120'
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.19
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+    dgname: 'cluster-01-qa-de-1-f512'
+    autosync: no
+    tg1_mac: 'd0:76:50:4f:ff:d5'
+
+  qa-de-1b-f512-02:
+    mgmt_ip: "10.46.100.175"
+    snmpcontact: '34336308:10.17.125.35:1030'
+    snmplocation: 'ROT13-RZ60-RO5L-RA03-05'
+    extramb: '5120'
+    selfips:
+      - name: 'cc-self-mgmt-rd0'
+        ip: 10.46.100.21
+        mask: 255.255.255.128
+        vlan: 'cc-vlan-mgmt-rd0'
+        rd: 0
+    dgname: 'cluster-02-qa-de-1-f512'
+    autosync: no
+    tg1_mac: 'd0:76:50:4f:ff:d6'

@@ -1,13 +1,15 @@
 ---
 - name: Show cluster HA state.
-  hosts: qa-de-1a-f511
+  hosts: 'device_roles_loadbalancer,&{{ targets }}'
   gather_facts: false
   collections:
     - f5networks.f5_modules
     - ansible.netcommon
   vars_files:
-    - vars/vault.yaml
-    - vars/global.yaml
+    - ../vars/vault.yaml
+    - ../vars/groupvars_global.yaml
+    - ../vars/groupvars_{{ region }}.yaml
+    - ../vars/hostvars_{{ region }}.yaml
   
   tasks:
 

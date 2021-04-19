@@ -1,0 +1,26 @@
+---
+- name: Run ad-hoc command on all vcmp hosts and active vcmp guests.
+  hosts: 'device_roles_loadbalancer,&{{ targets }}'
+  gather_facts: false
+  collections:
+    - f5networks.f5_modules
+    - ansible.netcommon
+  vars_files:
+    - ../vars/vault.yaml
+    - ../vars/groupvars_global.yaml
+    - ../vars/groupvars_{{ region }}.yaml
+    - ../vars/hostvars_{{ region }}.yaml
+
+  tasks:
+
+    - name: Call the role to setup HA facts.
+      import_role:
+        name: ha_fact
+      tags: always
+
+    - name: Run ad-hoc command.
+      shell: 'tmsh show sys version'
+      when: hastate == "active"
+
+    - import_tasks: tasks/configsave.yaml
+      tags: save_config

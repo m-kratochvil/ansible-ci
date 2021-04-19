@@ -20,3 +20,594 @@ all:
             value: active
           tags:
           - cc-net-f5-host
+
+        qa-de-1a-f511-01:
+          ansible_host: 10.46.100.182
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: de-ROT06RZ23HDA2-Ro1R-Ra07
+          manufacturers:
+          - f5
+          netbox_id: 10347
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.182
+          rack_groups:
+          - rz23-hd2
+          rack_role: cp
+          racks:
+          - CP090-01
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1a
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-lbaas
+          tenants:
+          - converged-cloud
+        qa-de-1a-f511-02:
+          ansible_host: 10.46.100.184
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: de-ROT06RZ23HDA2-Ro1R-Ra07
+          manufacturers:
+          - f5
+          netbox_id: 317
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.184
+          rack_groups:
+          - rz23-hd2
+          rack_role: cp
+          racks:
+          - CP090-01
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1a
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-lbaas
+          tenants:
+          - converged-cloud
+        qa-de-1a-f511-03:
+          ansible_host: 10.46.100.186
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: de-ROT06RZ23HDA2-Ro1R-Ra07
+          manufacturers:
+          - f5
+          netbox_id: 318
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.186
+          rack_groups:
+          - rz23-hd2
+          rack_role: cp
+          racks:
+          - CP090-01
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1a
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-lbaas
+          tenants:
+          - converged-cloud
+        qa-de-1a-f511-mgmt:
+          ansible_host: 10.46.100.180
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: de-ROT06RZ23HDA2-Ro1R-Ra07
+          manufacturers:
+          - f5
+          netbox_id: 10346
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.180
+          rack_groups:
+          - rz23-hd2
+          rack_role: cp
+          racks:
+          - CP090-01
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1a
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-mgmt
+          tenants:
+          - converged-cloud
+        qa-de-1a-f512:
+          ansible_host: 10.46.100.178
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-i5800
+          facility_id: DE-ROT06RZ23HDA2-Ro1R-Ra06
+          manufacturers:
+          - f5
+          netbox_id: 2226
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.178
+          rack_groups:
+          - rz23-hd2
+          rack_role: cp
+          racks:
+          - CP090-02
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1a
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-host
+          tenants:
+          - converged-cloud
+        qa-de-1a-f512-01:
+          ansible_host: 10.46.100.172
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: DE-ROT06RZ23HDA2-Ro1R-Ra06
+          manufacturers:
+          - f5
+          netbox_id: 4172
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.172
+          rack_groups:
+          - rz23-hd2
+          rack_role: cp
+          racks:
+          - CP090-02
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1a
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-lbaas
+          tenants:
+          - converged-cloud
+        qa-de-1a-f512-02:
+          ansible_host: 10.46.100.174
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: DE-ROT06RZ23HDA2-Ro1R-Ra06
+          manufacturers:
+          - f5
+          netbox_id: 4173
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.174
+          rack_groups:
+          - rz23-hd2
+          rack_role: cp
+          racks:
+          - CP090-02
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1a
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-lbaas
+          tenants:
+          - converged-cloud
+        qa-de-1b-f511:
+          ansible_host: 10.46.100.131
+          asset_tag: '34100985'
+          chassis_serial: f5-bbrb-npzl
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-5250v
+          facility_id: DE-ROT13RZ60-Ro5L-Ra03
+          manufacturers:
+          - f5
+          netbox_id: 280
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.131
+          rack_groups:
+          - rz60
+          rack_role: cp
+          racks:
+          - CP090-03
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1b
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-host
+          tenants:
+          - converged-cloud
+        qa-de-1b-f511-01:
+          ansible_host: 10.46.100.183
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: DE-ROT13RZ60-Ro5L-Ra03
+          manufacturers:
+          - f5
+          netbox_id: 320
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.183
+          rack_groups:
+          - rz60
+          rack_role: cp
+          racks:
+          - CP090-03
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1b
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-lbaas
+          tenants:
+          - converged-cloud
+        qa-de-1b-f511-02:
+          ansible_host: 10.46.100.185
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: DE-ROT13RZ60-Ro5L-Ra03
+          manufacturers:
+          - f5
+          netbox_id: 321
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.185
+          rack_groups:
+          - rz60
+          rack_role: cp
+          racks:
+          - CP090-03
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1b
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-lbaas
+          tenants:
+          - converged-cloud
+        qa-de-1b-f511-03:
+          ansible_host: 10.46.100.187
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: DE-ROT13RZ60-Ro5L-Ra03
+          manufacturers:
+          - f5
+          netbox_id: 322
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.187
+          rack_groups:
+          - rz60
+          rack_role: cp
+          racks:
+          - CP090-03
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1b
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-lbaas
+          tenants:
+          - converged-cloud
+        qa-de-1b-f511-mgmt:
+          ansible_host: 10.46.100.181
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: DE-ROT13RZ60-Ro5L-Ra03
+          manufacturers:
+          - f5
+          netbox_id: 323
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.181
+          rack_groups:
+          - rz60
+          rack_role: cp
+          racks:
+          - CP090-03
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1b
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-mgmt
+          tenants:
+          - converged-cloud
+        qa-de-1b-f512:
+          ansible_host: 10.46.100.179
+          asset_tag: '34336308'
+          chassis_serial: f5-eicq-xvlu
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-i5800
+          facility_id: DE-ROT13RZ60-Ro5L-Ra03
+          manufacturers:
+          - f5
+          netbox_id: 2228
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.179
+          rack_groups:
+          - rz60
+          rack_role: cp
+          racks:
+          - CP090-03
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1b
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-host
+          tenants:
+          - converged-cloud
+        qa-de-1b-f512-01:
+          ansible_host: 10.46.100.173
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: DE-ROT13RZ60-Ro5L-Ra03
+          manufacturers:
+          - f5
+          netbox_id: 4176
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.173
+          rack_groups:
+          - rz60
+          rack_role: cp
+          racks:
+          - CP090-03
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1b
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-lbaas
+          tenants:
+          - converged-cloud
+        qa-de-1b-f512-02:
+          ansible_host: 10.46.100.175
+          device_roles:
+          - loadbalancer
+          device_types:
+          - f5-vcmp
+          facility_id: DE-ROT13RZ60-Ro5L-Ra03
+          manufacturers:
+          - f5
+          netbox_id: 4177
+          platforms:
+          - f5-tmos
+          primary_ip4: 10.46.100.175
+          rack_groups:
+          - rz60
+          rack_role: cp
+          racks:
+          - CP090-03
+          region: qa-de-1
+          region_role: qa-de-1_loadbalancer
+          regions:
+          - qa-de-1
+          - qa
+          sites:
+          - qa-de-1b
+          status:
+            label: Active
+            value: active
+          tags:
+          - cc-net-f5-guest-lbaas
+          tenants:
+          - converged-cloud
+    device_types_f5-5250v:
+      hosts:
+        qa-de-1a-f511: {}
+        qa-de-1b-f511: {}
+    device_types_f5-i5800:
+      hosts:
+        qa-de-1a-f512: {}
+        qa-de-1b-f512: {}
+    device_types_f5-vcmp:
+      hosts:
+        qa-de-1a-f511-01: {}
+        qa-de-1a-f511-02: {}
+        qa-de-1a-f511-03: {}
+        qa-de-1a-f511-mgmt: {}
+        qa-de-1a-f512-01: {}
+        qa-de-1a-f512-02: {}
+        qa-de-1b-f511-01: {}
+        qa-de-1b-f511-02: {}
+        qa-de-1b-f511-03: {}
+        qa-de-1b-f511-mgmt: {}
+        qa-de-1b-f512-01: {}
+        qa-de-1b-f512-02: {}
+    platforms_f5-tmos:
+      hosts:
+        qa-de-1a-f511: {}
+        qa-de-1a-f511-01: {}
+        qa-de-1a-f511-02: {}
+        qa-de-1a-f511-03: {}
+        qa-de-1a-f511-mgmt: {}
+        qa-de-1a-f512: {}
+        qa-de-1a-f512-01: {}
+        qa-de-1a-f512-02: {}
+        qa-de-1b-f511: {}
+        qa-de-1b-f511-01: {}
+        qa-de-1b-f511-02: {}
+        qa-de-1b-f511-03: {}
+        qa-de-1b-f511-mgmt: {}
+        qa-de-1b-f512: {}
+        qa-de-1b-f512-01: {}
+        qa-de-1b-f512-02: {}
+    region_qa:
+      children:
+        region_qa-de-1:
+          children:
+            sites_qa-de-1a:
+              hosts:
+                qa-de-1a-f511: {}
+                qa-de-1a-f511-01: {}
+                qa-de-1a-f511-02: {}
+                qa-de-1a-f511-03: {}
+                qa-de-1a-f511-mgmt: {}
+                qa-de-1a-f512: {}
+                qa-de-1a-f512-01: {}
+                qa-de-1a-f512-02: {}
+            sites_qa-de-1b:
+              hosts:
+                qa-de-1b-f511: {}
+                qa-de-1b-f511-01: {}
+                qa-de-1b-f511-02: {}
+                qa-de-1b-f511-03: {}
+                qa-de-1b-f511-mgmt: {}
+                qa-de-1b-f512: {}
+                qa-de-1b-f512-01: {}
+                qa-de-1b-f512-02: {}
+            sites_qa-de-1d: {}
+    region_role_qa_de_1_loadbalancer:
+      hosts:
+        qa-de-1a-f511: {}
+        qa-de-1a-f511-01: {}
+        qa-de-1a-f511-02: {}
+        qa-de-1a-f511-03: {}
+        qa-de-1a-f511-mgmt: {}
+        qa-de-1a-f512: {}
+        qa-de-1a-f512-01: {}
+        qa-de-1a-f512-02: {}
+        qa-de-1b-f511: {}
+        qa-de-1b-f511-01: {}
+        qa-de-1b-f511-02: {}
+        qa-de-1b-f511-03: {}
+        qa-de-1b-f511-mgmt: {}
+        qa-de-1b-f512: {}
+        qa-de-1b-f512-01: {}
+        qa-de-1b-f512-02: {}
+    tags_cc-net-f5-guest-lbaas:
+      hosts:
+        qa-de-1a-f511-01: {}
+        qa-de-1a-f511-02: {}
+        qa-de-1a-f511-03: {}
+        qa-de-1a-f512-01: {}
+        qa-de-1a-f512-02: {}
+        qa-de-1b-f511-01: {}
+        qa-de-1b-f511-02: {}
+        qa-de-1b-f511-03: {}
+        qa-de-1b-f512-01: {}
+        qa-de-1b-f512-02: {}
+    tags_cc-net-f5-guest-mgmt:
+      hosts:
+        qa-de-1a-f511-mgmt: {}
+        qa-de-1b-f511-mgmt: {}
+    tags_cc-net-f5-host:
+      hosts:
+        qa-de-1a-f511: {}
+        qa-de-1a-f512: {}
+        qa-de-1b-f511: {}
+        qa-de-1b-f512: {}
+    ungrouped: {}

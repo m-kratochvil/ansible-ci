@@ -1,0 +1,12 @@
+---
+- name: Gather BIG-IP facts.
+  bigip_device_info:
+    gather_subset: devices
+    provider: "{{ provider }}"
+  delegate_to: localhost
+  check_mode: no
+  register: var_gathered
+
+- set_fact:
+    hastate: "{{ var_gathered.devices | json_query(\"[?self=='yes'].failover_state\") | first }}"
+  check_mode: no

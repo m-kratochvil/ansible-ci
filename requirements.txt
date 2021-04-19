@@ -1,5 +1,14 @@
-ansible
-paramiko
-netaddr
+ansible-base
+ansible-lint
+dnspython
 jmespath
+netaddr
 objectpath
+paramiko
+pexpect
+pygithub
+pykwalify
+pynetbox
+scp
+textfsm
+yamllint

@@ -1,11 +1,30 @@
-FROM ubuntu:20.04
+FROM alpine:3.13 
 
-ARG DEBIAN_FRONTEND=noninteractive
-RUN apt update -y && apt upgrade -y && apt install -y python3-wheel python3-pip sshpass iptables && \
-    pip3 install --upgrade wheel pip && \
-    apt clean -y && apt autoclean -y
+RUN apk add --no-cache \
+        python3 \
+        py3-pip \
+        openssl \
+        ca-certificates \
+        sshpass \
+        openssh-client && \
+    apk add --no-cache --virtual build-dependencies \
+        python3-dev \
+        libffi-dev \
+        openssl-dev \
+        build-base
 
-COPY requirements.txt /
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
+
 COPY requirements.yaml /
+COPY requirements.txt /
 
-RUN pip3 install -r /requirements.txt && ansible-galaxy collection install -r requirements.yaml && pip3 install sshuttle
+RUN pip3 install --upgrade pip && \
+    pip3 install wheel && \
+    pip3 install -r /requirements.txt
+
+RUN ansible-galaxy collection install -r requirements.yaml
+
+RUN apk del build-dependencies && \
+    rm -rf /var/cache/apk/*
+
+WORKDIR /ansible

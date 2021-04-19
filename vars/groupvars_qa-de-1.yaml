@@ -1,0 +1,37 @@
+---
+# Region specific device login credentials
+provider:
+  server: "{{ ansible_host }}"
+  user: lb-api-service
+  password: "{{ qa1.vault_remotepass }}"
+  validate_certs: false
+
+# AD authn
+bind_region: "qa-de-1"
+bind_server: "ldap-qa.qa-de-1.cloud.sap"
+bind_cert: "none"
+admonpass: "{{ qa1.vault_admonpass }}"
+adbindpw: "{{ qa1.vault_adbindpw }}"
+validate_peer: no
+
+# Syslog servers
+cnd_splunk: 10.17.120.86
+cnd_octobus: 10.17.120.130
+cc_logstash: 147.204.35.149
+
+# Other
+aciasn: 65148
+cp: cp090
+gateway: 10.46.100.129
+timeout_tmsh: 1800
+timeout_httpd: 1800
+timeout_sshd: 1800
+
+# Service deployments
+services_mgmt:
+  - billing
+  - k8s
+  - k8s_admin
+  - ldap
+  - ldns
+  - wsus

@@ -1,0 +1,6 @@
+---
+- name: Save configuration
+  bigip_config:
+    provider: "{{ provider }}"
+    save: yes
+  delegate_to: localhost
