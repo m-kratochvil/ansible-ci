@@ -1,0 +1,9 @@
+---
+collections:
+  - ansible.netcommon
+  - netbox.netbox
+  - community.general
+  - ansible.posix
+  - cisco.aci
+  - cisco.ios
+  - f5networks.f5_modules

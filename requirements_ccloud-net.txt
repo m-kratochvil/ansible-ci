@@ -1,0 +1,15 @@
+ansible-base
+ansible-lint
+dnspython
+jmespath
+netaddr
+ncclient
+objectpath
+paramiko
+pexpect
+pygithub
+pykwalify
+pynetbox
+scp
+textfsm
+yamllint

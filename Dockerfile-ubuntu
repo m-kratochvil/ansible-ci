@@ -1,0 +1,26 @@
+FROM keppel.eu-de-1.cloud.sap/ccloud-dockerhub-mirror/library/ubuntu:focal
+
+LABEL source_repository="https://github.wdf.sap.corp/Infrastructure-Automation/ccloud-net" \
+      maintainer="DL Central IO CND Converged Cloud"
+
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
+    apt-get install -y python3-dev python3-pip python3-wheel python3-venv make gcc git libpq-dev sshpass && \
+    pip3 install --upgrade pip wheel && \
+    apt-get clean -y && apt-get autoclean -y
+
+ADD http://aia.pki.co.sap.com/aia/SAP%20Global%20Root%20CA.crt /usr/local/share/ca-certificates/
+ADD http://aia.pki.co.sap.com/aia/SAP%20Global%20Sub%20CA%2002.crt /usr/local/share/ca-certificates/
+RUN update-ca-certificates
+ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
+COPY requirements_ccloud-net.txt /
+COPY requirements_ccloud-net.yaml /
+
+RUN pip3 install -r /requirements_ccloud-net.txt \
+    && ansible-galaxy collection install -r requirements_ccloud-net.yaml
+
+RUN git clone https://github.com/CiscoDevNet/ncc.git && pip3 install -r ncc/requirements.txt
+ENV PATH="/ncc:${PATH}"
+
+WORKDIR /ccloud-net

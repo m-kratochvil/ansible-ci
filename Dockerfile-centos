@@ -1,0 +1,29 @@
+FROM keppel.eu-de-1.cloud.sap/ccloud-dockerhub-mirror/library/centos:8
+
+LABEL source_repository="https://github.wdf.sap.corp/Infrastructure-Automation/ccloud-net" \
+      maintainer="DL Central IO CND Converged Cloud"
+
+RUN dnf install -y 'dnf-command(config-manager)' && \ 
+    dnf config-manager --set-enabled powertools && \
+    dnf install -y epel-release && \
+    dnf makecache && \
+    dnf upgrade -y && \
+    dnf install -y python38 python38-wheel python38-devel make gcc git sshpass && \
+    pip3 install -U pip wheel && \
+    dnf clean all
+
+ADD http://aia.pki.co.sap.com/aia/SAP%20Global%20Root%20CA.crt /etc/pki/ca-trust/source/anchors/
+ADD http://aia.pki.co.sap.com/aia/SAP%20Global%20Sub%20CA%2002.crt /etc/pki/ca-trust/source/anchors/
+RUN update-ca-trust
+
+COPY requirements_ccloud-net.txt /
+COPY requirements_ccloud-net.yaml /
+
+RUN pip3 install -r /requirements_ccloud-net.txt && \
+    ansible-galaxy collection install -r requirements_ccloud-net.yaml
+
+RUN git clone https://github.com/CiscoDevNet/ncc.git && pip3 install -r ncc/requirements.txt
+ENV PATH="/ncc:${PATH}"
+
+WORKDIR /ccloud-net
+

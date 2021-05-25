@@ -1,0 +1,43 @@
+FROM alpine:3.13
+
+LABEL source_repository="https://github.wdf.sap.corp/Infrastructure-Automation/ccloud-net" \
+      maintainer="DL Central IO CND Converged Cloud"
+
+RUN apk add --no-cache \
+        python3 \
+        py3-pip \
+        openssl \
+        ca-certificates \
+        sshpass \
+        openssh-client && \    
+    apk add --no-cache --virtual build-dependencies \
+        python3-dev \
+        py3-lxml \
+        libffi-dev \
+        openssl-dev \
+        build-base \
+        git
+
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
+
+ADD http://aia.pki.co.sap.com/aia/SAP%20Global%20Root%20CA.crt /usr/local/share/ca-certificates/
+ADD http://aia.pki.co.sap.com/aia/SAP%20Global%20Sub%20CA%2002.crt /usr/local/share/ca-certificates/
+RUN update-ca-certificates
+ENV REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
+COPY requirements_ccloud-net.yaml /
+COPY requirements_ccloud-net.txt /
+
+RUN pip3 install --upgrade pip && \
+    pip3 install wheel && \
+    pip3 install -r /requirements_ccloud-net.txt
+
+RUN ansible-galaxy collection install -r requirements_ccloud-net.yaml
+
+RUN git clone https://github.com/CiscoDevNet/ncc.git && pip3 install -r ncc/requirements.txt
+ENV PATH="/ncc:${PATH}"
+
+RUN apk del build-dependencies && \
+    rm -rf /var/cache/apk/*
+
+WORKDIR /ccloud-net
